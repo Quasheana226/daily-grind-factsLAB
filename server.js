@@ -12,7 +12,7 @@ require("dotenv").config(); // load .env file
 
 
 //ROUTES
-app.get("api/fun-facts", async (requestAnimationFrame, res) => {
+app.get("api/fun-facts", async (req, res) => {
     res.json({ message: "Route working " });
 })
 //PORT
