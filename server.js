@@ -17,3 +17,6 @@ require("dotenv").config(); // load .env file
 
 
 const PORT = process.env.PORT; //Grabbing port from .env
+app.listen(PORT, () => {
+    console.log(`The Daily grind server is running on PORT: ${PORT}`)
+});
