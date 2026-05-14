@@ -13,7 +13,22 @@ require("dotenv").config(); // load .env file
 
 //ROUTES
 app.get("api/fun-facts", async (req, res) => {
-    res.json({ message: "Route working " });
+    //res.json({ message: "Route working " });
+
+    try {
+        const response = await axios.get("https://uselessfacts.jsph.pl/api/v2/facts/random");
+        
+
+    // Pull out only the text from the response 
+    //response data.text is just the fact text we want 
+        const fact = response.data.text;
+
+        res.json({ fact: fact });
+
+    } catch (error) {
+        console.error("Error fetching fun fact:", error);
+        res.status(500).json({ error: "Failed to fetch fun fact" });
+    }
 })
 //PORT
 
